@@ -3,6 +3,10 @@ pipeline {
     parameters {
         string(name: 'SERVER_ID', defaultValue: 'artifactory1')
     }
+    
+    triggers { 
+        pollSCM('* * * * *') 
+    }
     stages {   
         stage('Clone git repo') {   
             steps {   
