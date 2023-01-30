@@ -34,7 +34,7 @@ pipeline {
         } 
         } 
         
-            stage ('Upload file to Jfrog Artifactory') {
+            stage ('Upload artifacts to Jfrog Artifactory') {
             steps {
                 rtUpload (
                     // Obtain an Artifactory server instance, defined in Jenkins --> Manage Jenkins --> Configure System:
