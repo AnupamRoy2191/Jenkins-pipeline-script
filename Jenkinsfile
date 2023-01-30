@@ -21,7 +21,7 @@ pipeline {
             } 
         } 
 
-        stage('SonarQube analysis') { 
+        stage('SonarQube analysis report') { 
 //    def scannerHome = tool 'SonarScanner 4.0'; 
         steps{ 
         withSonarQubeEnv('sonarqube') {  
@@ -34,7 +34,7 @@ pipeline {
         } 
         } 
         
-            stage ('Upload file') {
+            stage ('Upload file to Jfrog Artifactory') {
             steps {
                 rtUpload (
                     // Obtain an Artifactory server instance, defined in Jenkins --> Manage Jenkins --> Configure System:
@@ -54,7 +54,7 @@ pipeline {
             }
         }
         
-       stage('Deploy package on tomcat container') {   
+       stage('Deploy war file on tomcat container') {   
             steps {   
                 deploy adapters: [tomcat8(credentialsId: 'tomcat-users', path: '', url: 'http://192.168.0.111:8080')], contextPath: null, war: 'target/*.war'  
             }   
