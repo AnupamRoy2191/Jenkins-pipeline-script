@@ -56,7 +56,7 @@ pipeline {
         
        stage('Deploy war file on tomcat container') {   
             steps {   
-                deploy adapters: [tomcat8(credentialsId: 'tomcat-users', path: '', url: 'http://172.16.15.128:8090')], contextPath: null, war: 'target/*.war'  
+                deploy adapters: [tomcat8(credentialsId: 'tomcat-users', path: '', url: 'http://172.16.15.129:8090')], contextPath: null, war: 'target/*.war'  
             }   
         }
             }  
