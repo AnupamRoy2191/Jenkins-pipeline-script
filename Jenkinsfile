@@ -7,7 +7,7 @@ pipeline {
     stages {   
         stage('Clone git repo') {   
             steps {   
-                git 'https://github.com/royanu91/demo-webapp.git'  
+                git 'https://github.com/royanu91/Webapps_project.git'  
             }   
         }  
         stage('Build Code') {  
